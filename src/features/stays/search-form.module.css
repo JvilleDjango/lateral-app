@@ -1,0 +1,94 @@
+.form {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(190px, 1.35fr) minmax(150px, 1fr) minmax(150px, 1fr) minmax(120px, 0.7fr) auto;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 38px;
+  padding: 6px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 14px 36px rgba(29, 41, 37, 0.08);
+}
+
+.field {
+  min-width: 0;
+  padding: 9px 16px;
+  border-right: 1px solid var(--line);
+}
+
+.field label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.field label svg { color: var(--brand); }
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 30px;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-radius: 2px;
+  font-size: 0.92rem;
+}
+
+.field input::placeholder { color: #8a948f; opacity: 1; }
+.field input:focus-visible,
+.field select:focus-visible { outline-width: 2px; outline-offset: 4px; }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 0 21px;
+  color: white;
+  background: var(--brand);
+  border: 0;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button:hover { background: var(--brand-strong); }
+
+.error {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  margin: 0;
+  color: #a43727;
+  font-size: 0.84rem;
+  font-weight: 650;
+}
+
+@media (max-width: 980px) {
+  .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    padding: 1px;
+    background: var(--line);
+  }
+  .field { background: var(--paper); border: 0; padding: 13px 16px; }
+  .destination { grid-column: 1 / -1; }
+  .button { margin: 6px; }
+}
+
+@media (max-width: 640px) {
+  .form { grid-template-columns: 1fr; margin-top: 28px; }
+  .destination { grid-column: auto; }
+  .button { width: calc(100% - 12px); }
+  .error { position: static; padding: 4px 12px 10px; background: var(--paper); }
+}

@@ -1,0 +1,128 @@
+.card {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.imageLink {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e7ebe7;
+}
+
+.imageLink img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 240ms ease;
+}
+
+.imageLink:hover img { transform: scale(1.025); }
+
+.availabilityBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 9px;
+  color: #783a24;
+  background: #fff2e8;
+  border: 1px solid #f0cab4;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+.body { padding: 18px; }
+.heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.location svg { color: var(--brand); }
+
+.heading h3 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.42rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.heading h3 a { color: inherit; text-decoration: none; }
+.heading h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.rating svg { color: var(--accent); }
+
+.description {
+  min-height: 66px;
+  margin: 12px 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 14px;
+  padding-bottom: 15px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.77rem;
+}
+
+.meta span { display: inline-flex; align-items: center; gap: 5px; }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 15px;
+}
+
+.footer p { margin: 0; color: var(--ink); }
+.footer strong { font-size: 1.02rem; }
+.footer p span { color: var(--muted); font-size: 0.78rem; }
+
+.detailsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--brand);
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.detailsLink:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .description { min-height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageLink img { transition: none; }
+}
