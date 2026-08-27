@@ -18,3 +18,7 @@ export function getStays(params: StaySearchParams, signal?: AbortSignal) {
 
   return apiGet<Stay[]>(`/api/stays?${query.toString()}`, signal);
 }
+
+export function getStay(stayId: string, signal?: AbortSignal) {
+  return apiGet<Stay>(`/api/stays/${stayId}`, signal);
+}

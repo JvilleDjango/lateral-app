@@ -1,0 +1,107 @@
+.bookingSummary {
+  position: sticky;
+  top: 24px;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 16px 40px rgba(29, 41, 37, 0.08);
+}
+.bookingSummary > img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  background: #e7ebe7;
+}
+.bookingSummary__body {
+  padding: 20px;
+}
+.bookingSummary__location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+.bookingSummary__location svg {
+  color: var(--brand);
+}
+.bookingSummary__body h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+}
+.bookingSummary__tripDetails {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.bookingSummary__tripDetails div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+.bookingSummary__tripDetails dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+.bookingSummary__tripDetails dt svg {
+  color: var(--brand);
+}
+.bookingSummary__tripDetails dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: right;
+}
+.bookingSummary__priceDetails {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  font-size: 0.82rem;
+}
+.bookingSummary__priceDetails div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.bookingSummary__priceDetails dt {
+  color: var(--muted);
+}
+.bookingSummary__priceDetails dd {
+  margin: 0;
+  color: var(--ink);
+}
+.bookingSummary__priceDetails .bookingSummary__total {
+  margin-top: 3px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+  font-weight: 750;
+}
+.bookingSummary__priceDetails .bookingSummary__total dt {
+  color: var(--ink);
+}
+.bookingSummary__note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 840px) {
+  .bookingSummary {
+    position: static;
+  }
+}

@@ -1,0 +1,1 @@
+Perform the workflow in `.agents/skills/accessibility-audit/SKILL.md` against the complete booking journey. Run available automation and identify manual checks separately. Do not edit files unless explicitly asked.

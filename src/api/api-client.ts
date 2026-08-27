@@ -16,15 +16,38 @@ export async function apiGet<T>(path: string, signal?: AbortSignal): Promise<T> 
   const response = await fetch(path, { signal });
 
   if (!response.ok) {
+    // Normalize non-JSON failures so UI error states never depend on the server response format.
     const fallback: ApiError = {
       error: {
         code: "REQUEST_FAILED",
         message: "We couldn't complete that request. Please try again.",
       },
     };
-    const body = await response.json().catch(() => fallback) as ApiError;
+    const body = (await response.json().catch(() => fallback)) as ApiError;
     throw new ApiClientError(response.status, body.error);
   }
 
   return response.json() as Promise<T>;
+}
+
+export async function apiPost<TResponse, TBody>(path: string, body: TBody): Promise<TResponse> {
+  const response = await fetch(path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) {
+    // Preserve the same error contract for mutations and reads.
+    const fallback: ApiError = {
+      error: {
+        code: "REQUEST_FAILED",
+        message: "We couldn't complete that request. Please try again.",
+      },
+    };
+    const responseBody = (await response.json().catch(() => fallback)) as ApiError;
+    throw new ApiClientError(response.status, responseBody.error);
+  }
+
+  return response.json() as Promise<TResponse>;
 }

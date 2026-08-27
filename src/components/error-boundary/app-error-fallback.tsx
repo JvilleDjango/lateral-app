@@ -1,9 +1,7 @@
 import type { FallbackProps } from "react-error-boundary";
 
 const AppErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
-  const message = error instanceof Error
-    ? error.message
-    : "Something unexpected happened.";
+  const message = error instanceof Error ? error.message : "Something unexpected happened.";
 
   return (
     <main role="alert">

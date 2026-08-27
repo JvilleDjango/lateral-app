@@ -4,7 +4,7 @@ import styles from "./main-layout.module.css";
 
 const MainLayout = () => {
   return (
-    <div className={styles.layout}>
+    <div className={styles.mainLayout}>
       <Header />
       <main id="main-content">
         <Outlet />

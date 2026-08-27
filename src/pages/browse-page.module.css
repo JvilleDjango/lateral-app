@@ -1,16 +1,20 @@
-.hero {
+.browsePage {
+  min-width: 0;
+}
+
+.browsePage__hero {
   padding: 64px 0 54px;
   background: var(--canvas);
   border-bottom: 1px solid var(--line);
 }
 
-.heroInner,
-.resultsSection {
+.browsePage__heroInner,
+.browsePage__resultsSection {
   width: min(1180px, 90vw);
   margin: 0 auto;
 }
 
-.hero h1 {
+.browsePage__hero h1 {
   max-width: 830px;
   margin: 0 0 16px;
   color: var(--ink);
@@ -21,7 +25,7 @@
   letter-spacing: 0;
 }
 
-.eyebrow {
+.browsePage__eyebrow {
   margin: 0 0 12px;
   color: var(--brand);
   font-size: 0.78rem;
@@ -29,7 +33,7 @@
   text-transform: uppercase;
 }
 
-.intro {
+.browsePage__intro {
   max-width: 650px;
   margin: 0;
   color: var(--muted);
@@ -37,9 +41,11 @@
   line-height: 1.6;
 }
 
-.resultsSection { padding: 58px 0 86px; }
+.browsePage__resultsSection {
+  padding: 58px 0 86px;
+}
 
-.resultsHeadingRow {
+.browsePage__resultsHeadingRow {
   display: flex;
   align-items: end;
   justify-content: space-between;
@@ -47,9 +53,11 @@
   margin-bottom: 25px;
 }
 
-.resultsHeadingRow .eyebrow { margin-bottom: 7px; }
+.browsePage__resultsHeadingRow .browsePage__eyebrow {
+  margin-bottom: 7px;
+}
 
-.resultsHeadingRow h2 {
+.browsePage__resultsHeadingRow h2 {
   margin: 0;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
@@ -58,7 +66,7 @@
   line-height: 1.15;
 }
 
-.clearSearch {
+.browsePage__clearSearch {
   flex: none;
   color: var(--brand);
   font-size: 0.9rem;
@@ -66,11 +74,27 @@
 }
 
 @media (max-width: 640px) {
-  .hero { padding: 44px 0 40px; }
-  .heroInner, .resultsSection { width: calc(100% - 32px); }
-  .hero h1 { font-size: 3rem; line-height: 1; }
-  .intro { font-size: 0.98rem; }
-  .resultsSection { padding: 42px 0 64px; }
-  .resultsHeadingRow { align-items: flex-start; }
-  .resultsHeadingRow h2 { font-size: 1.65rem; }
+  .browsePage__hero {
+    padding: 44px 0 40px;
+  }
+  .browsePage__heroInner,
+  .browsePage__resultsSection {
+    width: calc(100% - 32px);
+  }
+  .browsePage__hero h1 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .browsePage__intro {
+    font-size: 0.98rem;
+  }
+  .browsePage__resultsSection {
+    padding: 42px 0 64px;
+  }
+  .browsePage__resultsHeadingRow {
+    align-items: flex-start;
+  }
+  .browsePage__resultsHeadingRow h2 {
+    font-size: 1.65rem;
+  }
 }

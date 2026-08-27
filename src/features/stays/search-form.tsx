@@ -10,6 +10,7 @@ interface SearchFormProps {
 }
 
 const SearchForm = ({ values }: SearchFormProps) => {
+  // Dates stay controlled for cross-field validation; other values are owned by the URL form.
   const today = DateTime.now().startOf("day").toISODate() ?? "";
   const [checkIn, setCheckIn] = useState(values.checkIn);
   const [checkOut, setCheckOut] = useState(values.checkOut);
@@ -25,13 +26,8 @@ const SearchForm = ({ values }: SearchFormProps) => {
   };
 
   return (
-    <Form
-      className={styles.form}
-      method="get"
-      onSubmit={handleSubmit}
-      role="search"
-    >
-      <div className={`${styles.field} ${styles.destination}`}>
+    <Form className={styles.searchForm} method="get" onSubmit={handleSubmit} role="search">
+      <div className={`${styles.searchForm__field} ${styles.searchForm__destination}`}>
         <label htmlFor="destination">
           <MapPin size={16} aria-hidden="true" />
           Where
@@ -45,7 +41,7 @@ const SearchForm = ({ values }: SearchFormProps) => {
           autoComplete="address-level2"
         />
       </div>
-      <div className={styles.field}>
+      <div className={styles.searchForm__field}>
         <label htmlFor="checkIn">
           <CalendarDays size={16} aria-hidden="true" />
           Check in
@@ -63,7 +59,7 @@ const SearchForm = ({ values }: SearchFormProps) => {
           required
         />
       </div>
-      <div className={styles.field}>
+      <div className={styles.searchForm__field}>
         <label htmlFor="checkOut">
           <CalendarDays size={16} aria-hidden="true" />
           Check out
@@ -83,7 +79,7 @@ const SearchForm = ({ values }: SearchFormProps) => {
           aria-invalid={Boolean(dateError)}
         />
       </div>
-      <div className={styles.field}>
+      <div className={styles.searchForm__field}>
         <label htmlFor="guests">
           <Users size={16} aria-hidden="true" />
           Guests
@@ -96,12 +92,12 @@ const SearchForm = ({ values }: SearchFormProps) => {
           ))}
         </select>
       </div>
-      <button className={styles.button} type="submit">
+      <button className={styles.searchForm__submit} type="submit">
         <Search size={19} aria-hidden="true" />
         <span>Search stays</span>
       </button>
       {dateError && (
-        <p className={styles.error} id="date-error" role="alert">
+        <p className={styles.searchForm__error} id="date-error" role="alert">
           {dateError}
         </p>
       )}

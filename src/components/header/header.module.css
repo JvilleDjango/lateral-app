@@ -1,4 +1,4 @@
-.header {
+.siteHeader {
   min-height: 68px;
   padding: 0 5vw;
   display: flex;
@@ -9,7 +9,7 @@
   border-bottom: 1px solid var(--line);
 }
 
-.brand {
+.siteHeader__brand {
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -19,21 +19,21 @@
   text-decoration: none;
 }
 
-.brand svg {
+.siteHeader__brand svg {
   color: var(--brand);
 }
 
-.note {
+.siteHeader__note {
   color: var(--muted);
   font-size: 0.88rem;
 }
 
 @media (max-width: 640px) {
-  .header {
+  .siteHeader {
     padding: 0 20px;
   }
 
-  .note {
+  .siteHeader__note {
     display: none;
   }
 }

@@ -16,21 +16,21 @@ const currency = new Intl.NumberFormat("en-US", {
 
 const StayCard = ({ stay, search }: StayCardProps) => {
   return (
-    <article className={styles.card}>
+    <article className={styles.stayCard}>
       <Link
-        className={styles.imageLink}
+        className={styles.stayCard__imageLink}
         to={`/stays/${stay.id}${search}`}
         aria-label={`View ${stay.name}`}
       >
         <img src={stay.imageUrl} alt={stay.imageAlt} loading="lazy" />
         {!stay.available && (
-          <span className={styles.availabilityBadge}>Next dates unavailable</span>
+          <span className={styles.stayCard__availabilityBadge}>Next dates unavailable</span>
         )}
       </Link>
-      <div className={styles.body}>
-        <div className={styles.heading}>
+      <div className={styles.stayCard__body}>
+        <div className={styles.stayCard__heading}>
           <div>
-            <p className={styles.location}>
+            <p className={styles.stayCard__location}>
               <MapPin size={14} aria-hidden="true" />
               {stay.location}
             </p>
@@ -38,28 +38,24 @@ const StayCard = ({ stay, search }: StayCardProps) => {
               <Link to={`/stays/${stay.id}${search}`}>{stay.name}</Link>
             </h3>
           </div>
-          <span
-            className={styles.rating}
-            aria-label={`${stay.rating} out of 5 stars`}
-          >
+          <span className={styles.stayCard__rating} aria-label={`${stay.rating} out of 5 stars`}>
             <Star size={15} fill="currentColor" aria-hidden="true" />
             {stay.rating}
           </span>
         </div>
-        <p className={styles.description}>{stay.description}</p>
-        <div className={styles.meta}>
+        <p className={styles.stayCard__description}>{stay.description}</p>
+        <div className={styles.stayCard__meta}>
           <span>
             <Users size={15} aria-hidden="true" />
             Up to {stay.maxGuests}
           </span>
           <span>{stay.amenities[0]}</span>
         </div>
-        <div className={styles.footer}>
+        <div className={styles.stayCard__footer}>
           <p>
-            <strong>{currency.format(stay.pricePerNight)}</strong>{" "}
-            <span>night</span>
+            <strong>{currency.format(stay.pricePerNight)}</strong> <span>night</span>
           </p>
-          <Link className={styles.detailsLink} to={`/stays/${stay.id}${search}`}>
+          <Link className={styles.stayCard__detailsLink} to={`/stays/${stay.id}${search}`}>
             View stay <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>

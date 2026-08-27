@@ -15,9 +15,9 @@ const StayResults = ({ params, search }: StayResultsProps) => {
 
   if (staysQuery.isPending) {
     return (
-      <div className={styles.grid} aria-label="Loading stays" aria-busy="true">
+      <div className={styles.stayResults} aria-label="Loading stays" aria-busy="true">
         {[1, 2, 3].map((item) => (
-          <div className={styles.skeleton} key={item} aria-hidden="true" />
+          <div className={styles.stayResults__skeleton} key={item} aria-hidden="true" />
         ))}
       </div>
     );
@@ -25,7 +25,7 @@ const StayResults = ({ params, search }: StayResultsProps) => {
 
   if (staysQuery.isError) {
     return (
-      <div className={styles.state} role="alert">
+      <div className={styles.stayResults__state} role="alert">
         <TriangleAlert size={28} aria-hidden="true" />
         <h3>We couldn't load these stays</h3>
         <p>Check your connection and try the search again.</p>
@@ -38,7 +38,7 @@ const StayResults = ({ params, search }: StayResultsProps) => {
 
   if (staysQuery.data.length === 0) {
     return (
-      <div className={styles.state}>
+      <div className={styles.stayResults__state}>
         <SearchX size={28} aria-hidden="true" />
         <h3>No stays match this search</h3>
         <p>Try another destination or reduce the number of guests.</p>
@@ -48,7 +48,7 @@ const StayResults = ({ params, search }: StayResultsProps) => {
   }
 
   return (
-    <div className={styles.grid}>
+    <div className={styles.stayResults}>
       {staysQuery.data.map((stay) => (
         <StayCard key={stay.id} stay={stay} search={search} />
       ))}

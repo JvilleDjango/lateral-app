@@ -1,4 +1,3 @@
-
 import { isRouteErrorResponse, useRouteError } from "react-router";
 
 const RouteErrorBoundary = () => {

@@ -7,6 +7,7 @@ import ConfirmationPage from "../pages/confirmation-page";
 import NotFoundPage from "../pages/not-found-page";
 import StayPage from "../pages/stay-page";
 
+// A data router centralizes route-level errors even though TanStack Query owns remote data.
 export const router = createBrowserRouter([
   {
     Component: MainLayout,
