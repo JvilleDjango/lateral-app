@@ -21,6 +21,7 @@ const StayPage = () => {
   }
 
   if (stayQuery.isError) {
+    // A missing fixture has different recovery guidance than a transient request failure.
     const notFound = stayQuery.error instanceof ApiClientError && stayQuery.error.status === 404;
     return (
       <section className={`${styles.stayPage} ${styles.stayPage__errorState}`} role="alert">
@@ -46,6 +47,7 @@ const StayPage = () => {
   const defaultCheckIn = DateTime.now().plus({ days: 14 }).toISODate() ?? "";
   const defaultCheckOut = DateTime.now().plus({ days: 17 }).toISODate() ?? "";
   const requestedGuests = Number(searchParams.get("guests") ?? 2);
+  // Clamp URL input to the selected stay before initializing the reservation control.
   const initialGuests = Number.isInteger(requestedGuests)
     ? Math.min(Math.max(requestedGuests, 1), stay.maxGuests)
     : 2;

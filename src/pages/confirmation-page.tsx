@@ -14,6 +14,7 @@ const currency = new Intl.NumberFormat("en-US", {
 const ConfirmationPage = () => {
   const { bookingId = "" } = useParams();
   const bookingQuery = useBooking(bookingId);
+  // Defer the stay request until the booking identifies which property was confirmed.
   const stayQuery = useStay(bookingQuery.data?.stayId ?? "");
 
   if (bookingQuery.isPending || (bookingQuery.data && stayQuery.isPending)) {

@@ -5,6 +5,7 @@ import styles from "./browse-page.module.css";
 
 const BrowsePage = () => {
   const [searchParams] = useSearchParams();
+  // Offer a useful three-night trip by default without writing defaults into the URL.
   const defaultCheckIn = DateTime.now().plus({ days: 14 }).toISODate() ?? "";
   const defaultCheckOut = DateTime.now().plus({ days: 17 }).toISODate() ?? "";
   const guestParam = Number(searchParams.get("guests") ?? 2);
@@ -25,6 +26,7 @@ const BrowsePage = () => {
           <p className={styles.browsePage__intro}>
             Memorable stays for slower weekends, selected for their setting and sense of place.
           </p>
+          {/* Remount uncontrolled fields when browser navigation changes the URL search state. */}
           <SearchForm key={activeSearch} values={values} />
         </div>
       </section>

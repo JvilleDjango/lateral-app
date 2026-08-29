@@ -13,6 +13,7 @@ interface StayResultsProps {
 const StayResults = ({ params, search }: StayResultsProps) => {
   const staysQuery = useStays(params);
 
+  // Keep loading, transport failure, and valid empty results visually and semantically distinct.
   if (staysQuery.isPending) {
     return (
       <div className={styles.stayResults} aria-label="Loading stays" aria-busy="true">

@@ -15,6 +15,7 @@ const currency = new Intl.NumberFormat("en-US", {
 });
 
 const StayCard = ({ stay, search }: StayCardProps) => {
+  // Preserve the active trip criteria so detail and checkout can continue the same journey.
   return (
     <article className={styles.stayCard}>
       <Link

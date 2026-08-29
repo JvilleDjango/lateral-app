@@ -20,6 +20,7 @@ const currency = new Intl.NumberFormat("en-US", {
 const BookingSummary = ({ stay, checkIn, checkOut, guests }: BookingSummaryProps) => {
   const start = DateTime.fromISO(checkIn);
   const end = DateTime.fromISO(checkOut);
+  // Checkout previews shared pricing, while booking creation remains authoritative on the API.
   const nights = Math.max(0, Math.round(end.diff(start, "days").days));
   const price = calculateBookingPrice(stay.pricePerNight, nights);
 

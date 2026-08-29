@@ -12,6 +12,7 @@ app.use(express.json());
 app.get("/api/health", (_request, response) => response.json({ status: "ok" }));
 
 app.get("/api/stays", (request, response) => {
+  // Dates remain booking intent; this fixture API only filters destination and party capacity.
   const destination = String(request.query.destination ?? "")
     .trim()
     .toLowerCase();
@@ -48,6 +49,7 @@ app.post("/api/stays/:stayId/reviews", (request, response) => {
     ...parsed.data,
     createdAt: new Date().toISOString(),
   };
+  // Newest-first insertion matches the detail page's recent-review presentation.
   reviews.unshift(review);
   response.status(201).json(review);
 });
@@ -103,6 +105,7 @@ function respondNotFound(response: express.Response, resource: string) {
 }
 
 function respondInvalid(response: express.Response, fields: Record<string, string[] | undefined>) {
+  // Strip undefined entries so clients receive a predictable serializable field-error map.
   const normalizedFields = Object.fromEntries(
     Object.entries(fields).filter((entry): entry is [string, string[]] => Boolean(entry[1])),
   );
